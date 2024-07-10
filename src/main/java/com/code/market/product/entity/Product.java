@@ -1,8 +1,8 @@
 package com.code.market.product.entity;
 
-import com.code.market.market.base.BaseEntity;
+import com.code.market.base.BaseEntity;
 import com.code.market.market.entity.Market;
-import com.code.market.market.question.entity.Question;
+import com.code.market.question.entity.Question;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
