@@ -3,7 +3,10 @@ package com.code.market.product.entity;
 import com.code.market.market.base.BaseEntity;
 import com.code.market.market.entity.Market;
 import com.code.market.market.question.entity.Question;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,6 +22,9 @@ public class Product extends BaseEntity {
     private int hitCount;
     private String isActive;
 
+    @ManyToOne
     private Market market;
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.REMOVE)
     private List<Question> questionList;
 }
