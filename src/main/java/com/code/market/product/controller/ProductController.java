@@ -28,6 +28,7 @@ public class ProductController {
         Product product = productService.getProduct(id);
 
         model.addAttribute("product", product);
+        System.out.println(product.toString());
 
         return "product/detail";
     }
