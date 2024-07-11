@@ -38,6 +38,14 @@ public class QuestionController {
         return "question/modify";
     }
 
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable("id") Long id) {
+        Question question = questionService.getQuestion(id);
+        questionService.delete(question);
+        long productId = question.getProduct().getId();
+        return "redirect:/product/detail/" + productId;
+    }
+
     @PostMapping("/modify/{id}")
     public String modify(@PathVariable("id") Long id, Principal principal, @RequestParam("content") String content) {
         Question question = questionService.getQuestion(id);
