@@ -66,7 +66,7 @@
             
             <ul class="list-group list-group-flush gap-2">
                 <li th:each="question : ${product.questionList}" class="list-group-item">
-                    <span th:text="${question.id}" class="questionId mr-2"></span>
+                    <span th:text="${question.id}" class="mr-2"></span>
                     <span th:text="${question.content}"></span>
                     
                     <a th:href="@{|/question/modify/${question.id}|}" class="btn btn-sm btn-info">수정</a>
