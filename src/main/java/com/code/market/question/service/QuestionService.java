@@ -16,10 +16,12 @@ public class QuestionService {
     private final QuestionRepository questionRepository;
 
     public void create(Product product, Member member, String content) {
-        Question question = new Question();
-        question.setProduct(product);
-        question.setMember(member);
-        question.setContent(content);
+        Question question = Question.builder()
+                .member(member)
+                .product(product)
+                .content(content)
+                .build();
+
         questionRepository.save(question);
     }
 
@@ -33,8 +35,9 @@ public class QuestionService {
     }
 
     public void modify(Question question, String content) {
-        question.setContent(content);
-        question.setModifyDate(LocalDateTime.now());
+        Question modifyQuestion = question.toBuilder()
+                .content(content)
+                .build();
 
         questionRepository.save(question);
     }
