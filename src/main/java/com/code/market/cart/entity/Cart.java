@@ -1,7 +1,10 @@
 package com.code.market.cart.entity;
 
 import com.code.market.base.BaseEntity;
+import com.code.market.member.entity.Member;
+import com.code.market.product.entity.Product;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,4 +12,10 @@ import lombok.Setter;
 @Getter
 @Entity
 public class Cart extends BaseEntity {
+    @ManyToOne
+    private Member member;
+
+    @ManyToOne
+    private Product product;
+
 }
