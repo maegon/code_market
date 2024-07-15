@@ -13,25 +13,28 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
+
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/product")
 public class ProductController {
     private final ProductService productService;
+
     @GetMapping("/list")
     public String list(
             Model model,
             @RequestParam(value = "page", defaultValue = "0") int page,
-            @RequestParam(value = "kw", defaultValue = "") String kw
+            @RequestParam(value="kw", defaultValue="") String kw
     ) {
         Page<Product> paging = productService.getList(page, kw);
+
         model.addAttribute("paging", paging);
         model.addAttribute("kw", kw);
         return "product/list";
     }
 
     @GetMapping("/detail/{id}")
-    public String detail(@PathVariable("id") long id, Model model) {
+    public String detail(@PathVariable("id") Long id, Model model) {
         Product product = productService.getProduct(id);
 
         model.addAttribute("product", product);

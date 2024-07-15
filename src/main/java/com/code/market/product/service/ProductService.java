@@ -19,6 +19,7 @@ import java.util.Optional;
 public class ProductService {
     private final ProductRepository productRepository;
 
+
     public Page<Product> getList(int page, String kw) {
         List<Sort.Order> sorts = new ArrayList<>();
         sorts.add(Sort.Order.desc("createDate"));
@@ -29,20 +30,19 @@ public class ProductService {
 
     public void create(String name, int price) {
         Product p = Product.builder()
-            .name(name)
-            .price(price)
-            .build();
+                .name(name)
+                .price(price)
+                .build();
         productRepository.save(p);
     }
 
-    public Product getProduct(long id) {
-        
+    public Product getProduct(Long id) {
         Optional<Product> product = productRepository.findById(id);
 
-        if(product.isPresent()) {
+        if (product.isPresent()) {
             return product.get();
         } else {
-            throw new RuntimeException("question not found");
+            throw new RuntimeException("product not found");
         }
     }
 }

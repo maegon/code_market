@@ -40,10 +40,6 @@ public class Dev {
                 productService.create(name, price);
             }
 
-            questionService.create(productService.getProduct(1), m2, "비전공자도 들어도 수업진도 따라갈 수 있나요?");
-            questionService.create(productService.getProduct(1), m3, "많이 비싼가요?");
-            questionService.create(productService.getProduct(2), m3, "많이 어렵나요?");
-            questionService.create(productService.getProduct(2), m2, "배고파요 저녁 뭐 먹을까요?");
         };
     }
 }
