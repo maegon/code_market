@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.web.multipart.MultipartFile;
 
 @SpringBootTest
 public class ProductServiceTests {
@@ -17,8 +18,9 @@ public class ProductServiceTests {
         for(int i = 1; i <= 200; i++) {
             String name = String.format("테스트 상품 : [%03d]", i);
             String description = String.format("테스트 설명:[%03d]", i);
+            // MultipartFile thumbnail =
             int price = 1;
-            productService.create(name, description, price);
+            // productService.create(name, description, price, thumbnail);
         }
     }
 }

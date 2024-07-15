@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.multipart.MultipartFile;
 
 @Configuration
 @Profile("dev")
@@ -37,8 +38,9 @@ public class Dev {
             for (int i = 1; i<=200; i++) {
                 String name = String.format("테스트 상품 : [%03d]", i);
                 String description = String.format("테스트 설명:[%03d]", i);
+                // MultipartFile thumbnail =
                 int price = 1;
-                productService.create(name, description, price);
+                // productService.create(name, description, price, thumbnail);
             }
 
         };
