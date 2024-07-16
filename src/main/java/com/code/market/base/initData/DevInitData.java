@@ -1,6 +1,5 @@
-package com.code.market.global.initData;
+package com.code.market.base.initData;
 
-import com.code.market.member.entity.Member;
 import com.code.market.member.repository.MemberRepository;
 import com.code.market.member.service.MemberService;
 import com.code.market.product.repository.ProductRepository;
@@ -8,29 +7,30 @@ import com.code.market.product.service.ProductService;
 import com.code.market.question.repository.QuestionRepository;
 import com.code.market.question.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.ApplicationRunner;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.multipart.MultipartFile;
 
 @Configuration
 @Profile("dev")
-public class Dev {
+public class DevInitData implements BeforeInitData {
 
+    @Autowired
+    PasswordEncoder passwordEncoder;
     @Autowired
     private MemberRepository memberRepository;
     @Autowired
     private QuestionRepository questionRepository;
     @Autowired
     private ProductRepository productRepository;
-    @Autowired
-    PasswordEncoder passwordEncoder;
 
     @Bean
-    public ApplicationRunner init(MemberService memberService, QuestionService questionService, ProductService productService) {
-        return args -> {
+    CommandLineRunner init() {
+       // MemberService memberService, QuestionService questionService, ProductService productService
+            /*return args -> {
+
             Member m1 = memberService.join("admin", "admin", "admin@test.com", "admin");
             Member m2 = memberService.join("user1", "user1", "user1@test.com", "user1");
             Member m3 = memberService.join("user2", "user2", "user2@test.com", "user2");
@@ -42,7 +42,10 @@ public class Dev {
                 int price = 1;
                 // productService.create(name, description, price, thumbnail);
             }
+             */
 
+        return args -> {
+            beforeInit();
         };
     }
 }

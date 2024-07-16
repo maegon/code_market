@@ -1,6 +1,6 @@
 package com.code.market.cart.entity;
 
-import com.code.market.base.BaseEntity;
+import com.code.market.base.entity.BaseEntity;
 import com.code.market.member.entity.Member;
 import com.code.market.product.entity.Product;
 import jakarta.persistence.Entity;
