@@ -1,6 +1,6 @@
 package com.code.market.cart.controller;
 
-import com.code.market.cart.entity.Cart;
+import com.code.market.cart.entity.CartItem;
 import com.code.market.cart.service.CartService;
 import com.code.market.member.entity.Member;
 import com.code.market.member.service.MemberService;
@@ -30,7 +30,7 @@ public class CartController {
     @GetMapping("/list")
     public String list(Principal principal, Model model) {
         Member member = memberService.findByUserName(principal.getName());
-        List<Cart> cartList = cartService.getList(member);
+        List<CartItem> cartList = cartService.getList(member);
 
         model.addAttribute("cartList", cartList);
         return "cart/list";

@@ -13,7 +13,7 @@ import lombok.experimental.SuperBuilder;
 @Getter
 @Entity
 @SuperBuilder
-public class Cart extends BaseEntity {
+public class CartItem extends BaseEntity {
     @ManyToOne
     private Member member;
 
