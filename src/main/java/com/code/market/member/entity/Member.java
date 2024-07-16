@@ -2,6 +2,7 @@ package com.code.market.member.entity;
 
 import com.code.market.base.BaseEntity;
 import com.code.market.cart.entity.Cart;
+import com.code.market.product.entity.Product;
 import com.code.market.question.entity.Question;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -20,6 +21,9 @@ public class Member extends BaseEntity {
     private String nickname;
     private String email;
     private String isActive;
+
+    @OneToMany(mappedBy = "member", cascade = CascadeType.REMOVE)
+    private List<Product> productList;
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.REMOVE)
     private List<Question> questionList;

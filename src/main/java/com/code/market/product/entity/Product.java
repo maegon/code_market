@@ -3,6 +3,7 @@ package com.code.market.product.entity;
 import com.code.market.base.BaseEntity;
 import com.code.market.cart.entity.Cart;
 import com.code.market.market.entity.Market;
+import com.code.market.member.entity.Member;
 import com.code.market.question.entity.Question;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -29,7 +30,7 @@ public class Product extends BaseEntity {
     private String thumbnailImg;
 
     @ManyToOne
-    private Market market;
+    private Member member;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.REMOVE)
     private List<Question> questionList;
