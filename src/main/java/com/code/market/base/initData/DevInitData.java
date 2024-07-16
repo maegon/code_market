@@ -27,13 +27,8 @@ public class DevInitData implements BeforeInitData {
     private ProductRepository productRepository;
 
     @Bean
-    CommandLineRunner init() {
-       // MemberService memberService, QuestionService questionService, ProductService productService
+    CommandLineRunner init(MemberService memberService, QuestionService questionService, ProductService productService) {
             /*return args -> {
-
-            Member m1 = memberService.join("admin", "admin", "admin@test.com", "admin");
-            Member m2 = memberService.join("user1", "user1", "user1@test.com", "user1");
-            Member m3 = memberService.join("user2", "user2", "user2@test.com", "user2");
 
             for (int i = 1; i<=200; i++) {
                 String name = String.format("테스트 상품 : [%03d]", i);
@@ -46,6 +41,12 @@ public class DevInitData implements BeforeInitData {
 
         return args -> {
             beforeInit();
+
+            String password = "{noop}1234";
+            memberService.join("user1", password, "user1@test.com", "user1");
+            memberService.join("user2", password, "user2@test.com", "user2");
+            memberService.join("user3", password, "user3@test.com", "user3");
+            memberService.join("user4", password, "user4@test.com", "user4");
         };
     }
 }
